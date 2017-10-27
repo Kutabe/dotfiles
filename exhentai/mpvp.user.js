@@ -316,7 +316,7 @@ $("body").mousemove(function() {
     if (!$('#mpvp:hover').length != 0) {
     	$("#mpvp").fadeOut(200);
 	 }
-  }, 1000000);
+  }, 1000);
 });
 
 // take actions on fullscreen change
