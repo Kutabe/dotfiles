@@ -299,6 +299,15 @@ function isFullScreen() {
   return document.fullScreen || document.webkitIsFullScreen || document.mozFullScreen || document.msIsFullScreen;
 }
 
+// reset timer on hashchange
+$(window).bind("hashchange", function() {
+  if (playtimer) {
+		clearTimeout(playtimer);
+		playtimer = null;
+    play();
+	}
+});
+
 // hide bar on timeout
 $("body").mousemove(function() {
   clearTimeout(fadetimer);
@@ -307,7 +316,7 @@ $("body").mousemove(function() {
     if (!$('#mpvp:hover').length != 0) {
     	$("#mpvp").fadeOut(200);
 	 }
-  }, 1000);
+  }, 1000000);
 });
 
 // take actions on fullscreen change
@@ -345,11 +354,11 @@ $("#fsexit").on("click", function() {
 
 // play/pause
 function currentPage() {
-	page = parseInt(window.location.hash.substring(5));
+	page = parseInt(window.location.hash.substring(5))
 	if (isNaN(page)) {
-		page = 1;
+		page = 1
 	}
-	return page;
+	return page
 }
 
 function play() {
@@ -426,21 +435,11 @@ $("#pausebtn").on("click", function() {
 $("#prevbtn").on("click", function() {
   if ($("#prevbtn").css("opacity") == "0.5") return;
   goPrevSlide();
-  if (playtimer) {
-		clearTimeout(playtimer);
-		playtimer = null;
-    play();
-	}
 });
 
 $("#nextbtn").on("click", function() {
   if ($("#nextbtn").css("opacity") == "0.5") return;
   goNextSlide();
-  if (playtimer) {
-		clearTimeout(playtimer);
-		playtimer = null;
-    play();
-	}
 });
 
 // mousewheel events to set delta time
