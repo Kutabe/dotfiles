@@ -4,7 +4,7 @@
 // @description This script provides a slideshow option for e-hentai.org galleries in MPV (Multi-Page Viewer) and minor improvements.
 // @author      ku7ab3@gmail.com
 // @include     https://e*hentai.org/mpv/*
-// @version     1.0
+// @version     1.1
 // @grant       none
 // @require     https://code.jquery.com/jquery-3.2.1.min.js
 // @updateURL   https://raw.githubusercontent.com/Kutabe/dotfiles/master/exhentai/mpvp.user.js
@@ -235,7 +235,7 @@ $("#bar1").append(`
 var playtimer = null;
 var fadetimer = null;
 var page = currentPage();
-var pages = $("#pane_images_inner > div").length;
+var pages = $('.mimg').length;
 
 // INITIAL STATES:
 // fullscreen button
